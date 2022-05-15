@@ -64,6 +64,7 @@
 
 /////////////////////////////////////////////////////////////////////
 
+/*
 const isArray = function (input) {
   typeof input === "object"
     ? input.constructor === Array
@@ -348,3 +349,208 @@ const removeDuplicates = function (arr) {
 };
 
 removeDuplicates(testArr4);
+
+console.log("--------------------------");
+
+*/
+
+/////////////////////////////////////////
+
+const color = [
+  "Blue ",
+  "Green",
+  "Red",
+  "Orange",
+  "Violet",
+  "Indigo",
+  "Yellow ",
+];
+
+const displayColors = function (arr) {
+  const o = ["th", "st", "nd", "rd"];
+
+  for (i = 0; i <= arr.length - 1; i++) {
+    if (i === 0) {
+      console.log(`1${o[1]} choice is ${arr[0]}.`);
+    }
+    if (i === 1) {
+      console.log(`2${o[2]} choice is ${arr[1]}.`);
+    }
+    if (i === 2) {
+      console.log(`3${o[3]} choice is ${arr[2]}.`);
+    }
+    if (i > 2) {
+      console.log(`${i + 1}${o[0]} choice is ${arr[i]}.`);
+    }
+  }
+};
+
+displayColors(color);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const array1 = [1, 0, 2, 3, 4];
+const array2 = [3, 5, 6, 7, 8, 13];
+
+const sumMatchingIndexes = function (arr1, arr2) {
+  const helper = {};
+
+  for (i = 0; i <= arr1.length - 1; i++) {
+    helper[i] = arr1[i];
+  }
+
+  for (i = 0; i <= arr2.length - 1; i++) {
+    helper[i] ? (helper[i] = helper[i] + arr2[i]) : (helper[i] = arr2[i]);
+  }
+
+  console.log(helper);
+  console.log(Object.values(helper));
+  return Object.values(helper);
+};
+
+sumMatchingIndexes(array1, array2);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const arrToUnion1 = [1, 2, 3];
+const arrToUnion2 = [100, 2, 1, 10];
+
+const union = function () {
+  const unionedArr = [...arrToUnion1, ...arrToUnion2];
+  const noDuplicatesArr = [...new Set(unionedArr)];
+  const finalArr = noDuplicatesArr.sort((a, b) => a - b);
+  console.log(finalArr);
+
+  return finalArr;
+};
+
+union(arrToUnion1, arrToUnion2);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const arr1 = [1, 2, 3];
+const arr2 = [100, 2, 1, 10];
+
+const arr3 = [1, 2, 3, 4, 5];
+const arr4 = [1, [2], [3, [[4]]], [5, 6]];
+
+const difference = function (arrA, arrB) {
+  let differenceArr = [];
+  for (i = 0; i <= arrA.length - 1; i++) {
+    if (!arrB.includes(arrA[i])) {
+      differenceArr.push(arrA[i]);
+    }
+  }
+
+  for (i = 0; i <= arrB.length - 1; i++) {
+    if (!arrA.includes(arrB[i])) {
+      differenceArr.push(arrB[i]);
+    }
+  }
+
+  differenceArr.sort((a, b) => a - b);
+  console.log(differenceArr);
+};
+
+difference(arr1, arr2);
+difference(arr3, arr4);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const testArr = [NaN, 0, 15, false, -22, "", undefined, 47, null];
+
+const removeSomeFromArr = function (arr) {
+  const forbidden = [null, 0, "", false, undefined, NaN];
+
+  for (i = 0; i <= forbidden.length - 1; i++) {
+    console.log("arr", arr);
+    if (arr.includes(forbidden[i])) {
+      const index = arr.indexOf(forbidden[i]);
+      console.log("index", index);
+      console.log(arr[index]);
+      arr.splice(index, 1);
+    }
+  }
+  console.log(arr);
+  return arr;
+};
+
+removeSomeFromArr(testArr);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const library = [
+  { author: "Bill Gates", title: "The Road Ahead", libraryID: 1254 },
+  { author: "Steve Jobs", title: "Walter Isaacson", libraryID: 4264 },
+  {
+    author: "Suzanne Collins",
+    title: "Mockingjay: The Final Book of The Hunger Games",
+    libraryID: 3245,
+  },
+];
+
+const sort = function (arr) {
+  let titles = [];
+  let sortedTitles = [];
+
+  for (i = 0; i <= arr.length - 1; i++) {
+    titles.push(arr[i].title);
+    sortedTitles = titles.sort();
+  }
+
+  console.log(sortedTitles);
+  const newLibrary = [];
+
+  for (i = 0; i <= sortedTitles.length - 1; i++) {
+    for (j = 0; j <= arr.length - 1; j++) {
+      // console.log(i, j);
+      if (sortedTitles[i].includes(arr[j].title)) {
+        // console.log("IT'S A MATCH!", i, j);
+        const index = j;
+        newLibrary.push(arr[index]);
+      }
+    }
+  }
+  console.log("newLibrary", newLibrary);
+};
+
+sort(library);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const testArr2 = [10, 20, 10, 40, 50, 60, 70];
+
+const findPairWhichGivesTheTargetSum = function (arr, target) {
+  let output = [];
+  for (i = 0; i <= arr.length - 1; i++) {
+    for (j = 0; j <= arr.length - 1; j++) {
+      if (arr[i] + arr[j] === target) {
+        output.push(i, j);
+        console.log("output.length", output.length);
+      }
+    }
+    if (output.length === 2) {
+      break;
+    }
+  }
+  console.log("output", output);
+  return output;
+};
+
+findPairWhichGivesTheTargetSum(testArr2, 50);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
