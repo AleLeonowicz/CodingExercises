@@ -616,3 +616,369 @@ giveEveryNLetterInAlphabet("d", "m", 3);
 console.log("--------------------------");
 
 /////////////////////////////////////////
+
+const array4 = [1, 2, 3];
+const array5 = [2, 30, 1];
+
+const margeTwoArrays = function (arr1, arr2) {
+  let finalArr = [];
+
+  finalArr.push(...arr1);
+
+  for (i = 0; i <= arr2.length - 1; i++) {
+    if (!finalArr.includes(arr2[i])) {
+      finalArr.push(arr2[i]);
+    }
+  }
+
+  console.log("finalArr", finalArr);
+  return finalArr;
+};
+
+margeTwoArrays(array4, array5);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const array6 = [2, 5, 9, "ala", "butter", 12];
+
+const removeSpecificElFromArr = function (arr, el) {
+  if (!arr.includes(el)) {
+    console.log("The given array doesn't include the given element.");
+    return;
+  }
+
+  const index = arr.indexOf(el);
+  const newArr = [...arr];
+
+  newArr.splice(index, 1);
+
+  console.log("newArr", newArr);
+  return newArr;
+};
+
+removeSpecificElFromArr(array6, 9);
+removeSpecificElFromArr(array6, "butter");
+removeSpecificElFromArr(array6, 28);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const array7 = [43, 56, 23, 89, 88, 90, 99, 652];
+
+const findTheNthLargestElement = function (arr, n) {
+  const newArr = [...arr];
+  const sortedArr = newArr.sort((a, b) => a - b);
+  console.log("sortedArr", sortedArr);
+
+  const nthElement = sortedArr.slice(-n, -n + 1);
+  console.log("nthElement", nthElement);
+  return nthElement;
+};
+
+findTheNthLargestElement(array7, 4);
+findTheNthLargestElement(array7, 6);
+
+console.log("--------------------------");
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const student = {
+  name: "David Rayy",
+  sclass: "VI",
+  rollno: 12,
+};
+
+const deleteKey = function (object, key) {
+  const newObject = { ...object };
+  console.log("newObject", newObject);
+
+  delete newObject[key];
+
+  console.log("newObject after delete", newObject);
+};
+
+deleteKey(student, "rollno");
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const bookLibrary = [
+  {
+    author: "Bill Gates",
+    title: "The Road Ahead",
+    readingStatus: true,
+  },
+  {
+    author: "Steve Jobs",
+    title: "Walter Isaacson",
+    readingStatus: true,
+  },
+  {
+    author: "Suzanne Collins",
+    title: "Mockingjay: The Final Book of The Hunger Games",
+    readingStatus: false,
+  },
+];
+
+const displayTheReadingStatus = function (arr) {
+  for (i = 0; i <= arr.length - 1; i++) {
+    if (arr[i].readingStatus) {
+      console.log(
+        `You have already read: "${arr[i].title}" by ${arr[i].author}.`
+      );
+    }
+    if (!arr[i].readingStatus) {
+      console.log(
+        `You still want to read: "${arr[i].title}" by ${arr[i].author}.`
+      );
+    }
+  }
+};
+
+displayTheReadingStatus(bookLibrary);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const Cylinder = class {
+  constructor(r, h) {
+    this.r = r;
+    this.h = h;
+  }
+  volume() {
+    return 3.1415 * Math.pow(this.r, 2) * this.h;
+  }
+};
+
+const cylinder1 = new Cylinder(5, 12);
+
+const getCylindersVolume = function (Cylinder) {
+  console.log(Cylinder.volume());
+  return Cylinder.volume();
+};
+
+getCylindersVolume(cylinder1);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+// const testData = 'dog'
+
+// const giveSubsetOfAString = function (string) {
+//   let output = [];
+//   for (i=0; i<= string.length -1; i++) {
+//     output.push(string.slice(0, i+1))
+//   }
+// }
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const clock = function () {
+  setInterval(() => {
+    const date = new Date().toLocaleTimeString();
+    console.log(date);
+  }, 1000);
+};
+
+// clock();
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const Circle = class {
+  constructor(r) {
+    this.r = r;
+  }
+
+  area() {
+    return 3.1415 * Math.pow(this.r, 2);
+  }
+
+  perimeter() {
+    return 3.1415 * 2 * this.r;
+  }
+};
+
+const circle1 = new Circle(10);
+const circle2 = new Circle(128);
+
+const area1 = circle1.area();
+const perimeter1 = circle1.perimeter();
+
+const area2 = circle2.area();
+const perimeter2 = circle2.perimeter();
+
+console.log("circle1", circle1);
+console.log("circle2", circle2);
+
+console.log("area1", area1);
+console.log("perimeter1", perimeter1);
+
+console.log("area2", area2);
+console.log("perimeter2", perimeter2);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const parseAnUrl = function () {
+  const url = window.location.href;
+  console.log(url);
+};
+
+parseAnUrl();
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const testObject = {
+  author: "Bill Gates",
+  title: "The Road Ahead",
+  readingStatus: true,
+};
+
+const getKeyValuePairs = function (object) {
+  console.log(Object.entries(object));
+  return Object.entries(object);
+};
+
+getKeyValuePairs(testObject);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const testObject2 = {
+  author: "Bill Gates",
+  title: "The Road Ahead",
+  readingStatus: true,
+};
+
+const swapKeysAndValues = function (object) {
+  const entries = Object.entries(object);
+
+  for (i = 0; i <= entries.length - 1; i++) {
+    entries[i].reverse();
+  }
+  console.log("reversed entries", entries);
+  const newObject = Object.fromEntries(entries);
+  console.log("newObject", newObject);
+  return newObject;
+};
+
+swapKeysAndValues(testObject2);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const testObject3 = {
+  author: "Bill Gates",
+  title: "The Road Ahead",
+  readingStatus: true,
+};
+
+const checkIfObjContainsProperty = function (object, property) {
+  const keys = Object.keys(object);
+  if (keys.includes(property)) {
+    console.log(true);
+    return true;
+  }
+  console.log(false);
+  return false;
+};
+
+checkIfObjContainsProperty(testObject3, "title");
+checkIfObjContainsProperty(testObject3, "ISBN");
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const checkIfPalindrome = function (string) {
+  let reversedString = "";
+  for (i = string.length - 1; i >= 0; i--) {
+    reversedString = reversedString + string[i];
+  }
+
+  if (reversedString === string) {
+    console.log(true, `This string IS a palindrom.`);
+  } else {
+    console.log(false, `This string IS NOT a palindrom.`);
+  }
+};
+
+checkIfPalindrome("kayak");
+checkIfPalindrome("2022");
+checkIfPalindrome("2002");
+checkIfPalindrome("butter");
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const returnStringInAlphabeticalOrder = function (string) {
+  let helperArr = [];
+  for (i = 0; i <= string.length - 1; i++) {
+    helperArr.push(string[i]);
+  }
+  const sortedHelperArr = helperArr.sort();
+  let result = "";
+  for (i = 0; i <= sortedHelperArr.length - 1; i++) {
+    result = result + sortedHelperArr[i];
+  }
+
+  console.log(result);
+  return result;
+};
+
+const testString1 = "webmaster";
+const testString2 = "szyszok-szyszek";
+
+returnStringInAlphabeticalOrder(testString1);
+returnStringInAlphabeticalOrder(testString2);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const testString3 = "Web Development Tutorial";
+const testString4 = "Szysio Szyszokowski Szyszek to Mysio Mysiokowski Myszek";
+
+const findTheLongestWord = function (string) {
+  const helperArr = string.split(" ");
+  console.log(helperArr);
+
+  let helperObj = {
+    length: 0,
+    index: null,
+  };
+
+  for (i = 0; i <= helperArr.length - 1; i++) {
+    if (helperObj.length < helperArr[i].length) {
+      helperObj.length = helperArr[i].length;
+      helperObj.index = i;
+    }
+  }
+  console.log("helperObj", helperObj);
+  const output = helperArr[helperObj.index];
+  console.log(output);
+  return output;
+};
+
+findTheLongestWord(testString3);
+findTheLongestWord(testString4);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
