@@ -554,3 +554,65 @@ findPairWhichGivesTheTargetSum(testArr2, 50);
 console.log("--------------------------");
 
 /////////////////////////////////////////
+
+const giveEveryNLetterInAlphabet = function (letter1, letter2, n) {
+  const alphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+
+  if (!alphabet.includes(letter1) || !alphabet.includes(letter2)) {
+    console.log(
+      "Please insert a valid letter of the alphabet as starting and ending point."
+    );
+    return;
+  }
+
+  const index1 = alphabet.indexOf(letter1);
+  const index2 = alphabet.indexOf(letter2);
+
+  const rangeOfAlphabet = alphabet.slice(index1, index2 + 1);
+  console.log("rangeOfAlphabet", rangeOfAlphabet);
+
+  let answer = [];
+
+  for (i = 0; i <= rangeOfAlphabet.length - 1; i++) {
+    if (i % n === 0) {
+      answer.push(rangeOfAlphabet[i]);
+    }
+  }
+  console.log(answer);
+  return answer;
+};
+
+giveEveryNLetterInAlphabet("a", "z", 2);
+giveEveryNLetterInAlphabet("d", "m", 2);
+giveEveryNLetterInAlphabet("d", "m", 3);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
