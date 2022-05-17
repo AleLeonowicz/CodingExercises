@@ -982,3 +982,45 @@ findTheLongestWord(testString4);
 console.log("--------------------------");
 
 /////////////////////////////////////////
+
+const testString6 = "Szyszok Szyszek to Mały Myszek";
+const testString7 = "Lusia Pimpusia";
+
+const countVowels = function (string) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let numberOfVowels = null;
+  for (i = 0; i <= string.length - 1; i++) {
+    if (vowels.includes(string[i])) {
+      numberOfVowels++;
+    }
+  }
+  console.log(numberOfVowels);
+  return numberOfVowels;
+};
+
+countVowels(testString6);
+countVowels(testString7);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const checkIfPrime = function (n) {
+  for (i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      console.log(i);
+      console.log(false, `The given number: ${n} is not prime.`);
+      return;
+    }
+  }
+
+  console.log(true, `The given number: ${n} is prime.`);
+};
+
+checkIfPrime(17);
+checkIfPrime(15);
+checkIfPrime(37);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
