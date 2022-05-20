@@ -1024,3 +1024,60 @@ checkIfPrime(37);
 console.log("--------------------------");
 
 /////////////////////////////////////////
+
+// typeof returns: object, boolean, function, number, string, and undefined
+
+const returnType = function (arg) {
+  const type = typeof arg;
+  console.log(type);
+  return type;
+};
+
+let szyszek;
+
+returnType(true);
+returnType(124);
+returnType("akfs");
+returnType((x) => 2 * x);
+returnType({ name: "Aleksandra", surname: "Leonowicz" });
+returnType(szyszek);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const createIdentityMatrix = function (n) {
+  const identityMatrix = [];
+  for (i = 0; i <= n - 1; i++) {
+    const newArr = new Array(n - 1).fill(0);
+    newArr.splice(i, 0, 1);
+    identityMatrix.push(newArr);
+  }
+  console.log(identityMatrix);
+};
+
+createIdentityMatrix(5);
+createIdentityMatrix(8);
+createIdentityMatrix(2);
+
+console.log("--------------------------");
+
+/////////////////////////////////////////
+
+const find2ndLowestAndHighest = function (arr) {
+  const max = Math.max(...arr);
+  const indexMax = arr.indexOf(max);
+  arr.splice(indexMax, 1);
+
+  const min = Math.min(...arr);
+  const indexMin = arr.indexOf(min);
+  arr.splice(indexMin, 1);
+
+  const secondMax = Math.max(...arr);
+  const secondMin = Math.min(...arr);
+
+  console.log("secondMax", secondMax);
+  console.log("secondMin", secondMin);
+};
+
+find2ndLowestAndHighest([1, 2, 3, 4, 5, 6, 7, 8]);
